@@ -89,3 +89,9 @@ _Throughput_, yang sering berhubungan dengan kapasitas layanan untuk menangani _
 ## Referensi
 
 Van Steen, M. dan Tanenbaum, A. S. (2023). Distributed Systems (Edisi ke-4). Amazon Digital Services LLC - Kdp. https://distributed-systems.net
+
+## Lampiran
+
+### Video Demo
+
+[Link Video](https://youtu.be/R9eZSfGU_9Y)

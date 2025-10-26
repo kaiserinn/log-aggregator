@@ -123,3 +123,6 @@ Menampilkan statistik operasional dari *aggregator*.
 * **Idempotency**: Idempotensi dicapai dengan memeriksa *primary key* `(topic, event_id)` di *database* SQLite *sebelum* memproses *event* dari *queue*. Jika `event_id` untuk `topic` tersebut sudah ada, *event* akan dilewati (dianggap duplikat) dan *counter* `duplicate_dropped` akan diinkremen.
 * **Ordering**: Sistem ini **tidak menjamin *total ordering***. *Event* diproses berdasarkan urutan kedatangan (*arrival order*) di *internal queue*. Dalam konteks *log aggregator* ini, konsistensi akhir (memastikan semua *event* unik tercatat) dianggap lebih penting daripada urutan pemrosesan yang ketat.
 * **Delivery Semantics**: *Publisher* (klien) dirancang untuk mensimulasikan *at-least-once delivery* dengan mengirimkan beberapa *event* dengan `event_id` yang sama. *Aggregator* (server) menjamin *effectively-once processing* melalui mekanisme *idempotency* dan *deduplication*.
+
+## Video Demo
+[Link Video](https://youtu.be/R9eZSfGU_9Y)
