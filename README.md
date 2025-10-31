@@ -2,6 +2,8 @@
 
 Proyek ini adalah implementasi layanan *Pub-Sub log aggregator* untuk Ujian Tengah Semester (UTS) Sistem Terdistribusi.
 
+![Diagram Arsitektur](architecture-diagram.svg)
+
 Tujuan utama layanan ini adalah menerima *event* (log) dari *publisher*, memprosesnya secara asinkron, dan menyimpannya. Fitur inti mencakup idempotency dan deduplication untuk menangani pengiriman *event* duplikat (*at-least-once delivery*), serta memastikan persistensi status deduplikasi saat *container* di-*restart*.
 
 ## Cara Build dan Run
