@@ -1,0 +1,25 @@
+services:
+  aggregator:
+    build:
+      context: .
+      dockerfile: Dockerfile.aggregator
+    image: kaiserin0/aggregator
+    environment:
+      PYTHONPATH: src
+      HOST: 0.0.0.0
+      PORT: 7878
+      DB_PATH: ./data/store.db
+    ports:
+      - 7878:7878
+
+  publisher:
+    build:
+      context: .
+      dockerfile: Dockerfile.publisher
+    image: kaiserin0/publisher
+    environment:
+      PYTHONPATH: src
+      AGG_HOST: aggregator
+      AGG_PORT: 7878
+    depends_on:
+      - aggregator

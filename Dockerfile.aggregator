@@ -1,0 +1,24 @@
+FROM python:3.13.9-slim
+
+WORKDIR /app
+
+RUN adduser --disabled-password --gecos '' appuser && chown -R appuser:appuser /app
+USER appuser
+
+COPY pyproject.toml ./
+RUN ["pip", "install", "-e", "."]
+
+RUN mkdir data
+VOLUME "/home/appuser/app/data"
+
+COPY src/ ./src/
+COPY tests/ ./tests/
+
+ENV PYTHONPATH="src"
+ENV HOST="0.0.0.0"
+ENV PORT=7878
+ENV DB_PATH="./data/store.db"
+
+EXPOSE ${PORT}
+
+CMD ["python", "-u", "./src/main.py"]
